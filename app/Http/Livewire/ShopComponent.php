@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product;
+use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Cart;
@@ -39,7 +40,9 @@ class ShopComponent extends Component
             $products = Product::paginate($this->pagesize);
         }
 
-        return view('livewire.shop-component', ['products' => $products])
+        $categories = Category::all();  
+
+        return view('livewire.shop-component', compact('products', 'categories'))
             ->layout('layouts.base');
     }
 }
