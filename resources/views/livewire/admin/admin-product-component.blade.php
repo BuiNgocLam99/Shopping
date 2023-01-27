@@ -53,9 +53,9 @@
                                             <a href="{{ route('admin.product.edit', $product->slug) }}">
                                                 <i class="fa fa-edit fa-2x text-info"></i>
                                             </a>
-                                            {{-- <a href="#" wire:click.prevent="deleteproduct({{ $product->id }})" style="margin-left: 10px">
+                                            <a href="#" wire:click.prevent="deleteProduct({{ $product->id }})" style="margin-left: 10px">
                                                 <i class="fa fa-times fa-2x text-danger"></i>
-                                            </a> --}}
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
