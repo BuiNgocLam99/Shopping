@@ -7,6 +7,7 @@ use App\Models\Product;
 use Illuminate\Support\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Livewire\WithFileUploads;
 
 class AdminEditProductComponent extends Component
@@ -55,7 +56,7 @@ class AdminEditProductComponent extends Component
     {
         $this->validateOnly($fields, [
             'name' => 'required',
-            'slug' => 'required|unique:products',
+            'slug' => ['required', Rule::unique('products')->ignore($this->product_id)],
             'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required|numeric',
@@ -64,7 +65,7 @@ class AdminEditProductComponent extends Component
             'stock_status' => 'required',
             'featured' => 'required',
             'quantity' => 'required|numeric',
-            'new_image' => 'required|mimes:jpeg,png',
+            'new_image' => 'nullable|mimes:jpeg,png',
             'category_id' => 'required',
         ]);
     }
@@ -73,7 +74,7 @@ class AdminEditProductComponent extends Component
     {
         $this->validate([
             'name' => 'required',
-            'slug' => 'required|unique:products',
+            'slug' => ['required', Rule::unique('products')->ignore($this->product_id)],
             'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required|numeric',
@@ -82,7 +83,7 @@ class AdminEditProductComponent extends Component
             'stock_status' => 'required',
             'featured' => 'required',
             'quantity' => 'required|numeric',
-            'new_image' => 'required|mimes:jpeg,png',
+            'new_image' => 'nullable|mimes:jpeg,png',
             'category_id' => 'required',
         ]);
 
