@@ -11,6 +11,7 @@ use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
+use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
@@ -98,4 +99,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     // Home Category Routes
     Route::get('/admin/home-categories', AdminHomeCategoryComponent::class)
         ->name('admin.home-categories');
+
+    // Sale Routes
+    Route::get('/admin/sale', AdminSaleComponent::class)
+        ->name('admin.sale');
 });
