@@ -41,7 +41,7 @@
                             <div class="product-info">
                                 <a href="{{ route('product.details', $item->model->slug) }}" class="product-name"><span>{{ $item->model->name }}</span></a>
                                 <div class="wrap-price"><span class="product-price">${{ $item->model->regular_price }}</span></div>
-                                <a href="#" wire:click="store({{ $item->model->id }}, '{{ $item->model->name }}', {{ $item->model->regular_price }})" class="btn add-to-cart">Add To Cart</a>
+                                <a href="#" wire:click="moveProductFromWishlistToCart('{{ $item->rowId }}')" class="btn add-to-cart">Move To Cart</a>
                                 <div class="product-wish">
                                     <a href="#" wire:click.prevent="removeFromWishlist({{ $item->model->id }})"><i class="fa fa-heart fill-heart"></i></a>
                                 </div>
