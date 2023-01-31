@@ -95,7 +95,7 @@
                                         <a href="#" wire:click="store({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})" class="btn add-to-cart">Add To Cart</a>
                                         <div class="product-wish">
                                             @if ($witems->contains($product->id))
-                                                <a href="#"><i class="fa fa-heart fill-heart"></i></a>
+                                                <a href="#" wire:click.prevent="removeFromWishlist({{ $product->id }})"><i class="fa fa-heart fill-heart"></i></a>
                                             @else
                                                 <a href="#" wire:click.prevent="addToWishlist({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})"><i class="fa fa-heart"></i></a>
                                             @endif
