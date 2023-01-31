@@ -105,7 +105,6 @@
                             </li>
                         @endforeach
                     </ul>
-
                 </div>
 
                 <div class="wrap-pagination-info">
