@@ -137,7 +137,7 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="index.html" class="link-to-home"><img src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+							<a href="index.html" class="link-to-home"><img src="{{ asset('assets/images/logo/logo-black.png') }}" alt="mercado" style="height: 126px"></a>
 						</div>
 
 						@livewire('header-search-component')
@@ -147,7 +147,11 @@
 								<a href="#" class="link-direction">
 									<i class="fa fa-heart" aria-hidden="true"></i>
 									<div class="left-info">
-										<span class="index">0 item</span>
+										@if (Cart::instance('wishlist')->count() > 0)
+											<span class="index">{{ Cart::instance('wishlist')->count() }} items</span>
+										@else
+											<span class="index">0 item</span>
+										@endif
 										<span class="title">Wishlist</span>
 									</div>
 								</a>
@@ -156,8 +160,8 @@
 								<a href="#" class="link-direction">
 									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
 									<div class="left-info">
-										@if (Cart::count() > 0)
-											<span class="index">{{ Cart::count() }} items</span>
+										@if (Cart::instance('cart')->count() > 0)
+											<span class="index">{{ Cart::instance('cart')->count() }} items</span>
 										@else
 											<span class="index">0 item</span>
 										@endif
